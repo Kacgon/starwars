@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Routes, Route} from "react-router-dom"
 import {Container, Nav} from 'react-bootstrap'
-import {Films} from './pages/Films'
+import Films from './pages/Films'
 import {People} from './pages/People'
 import {Planets} from './pages/Planets'
 import {Species} from './pages/Species'
