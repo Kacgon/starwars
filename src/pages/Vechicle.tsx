@@ -14,7 +14,7 @@ const Vechicle = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/films";
+  const ENDPOINT = "https://swapi.dev/api/vechicle";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);

@@ -14,7 +14,7 @@ const Starships = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/films";
+  const ENDPOINT = "https://swapi.dev/api/starships";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);
