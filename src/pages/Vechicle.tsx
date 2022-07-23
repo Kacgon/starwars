@@ -3,7 +3,7 @@ import axios from "axios"
 
 const Vechicle = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [vechicle, setVechicle] = React.useState([]);
+  const [vechicles, setVechicles] = React.useState([]);
 
   React.useEffect(() => {
     getData();
@@ -14,14 +14,14 @@ const Vechicle = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/vechicle";
+  const ENDPOINT = "https://swapi.dev/api/vehicles/";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);
-      console.log("RES-films", response.data.results);
+      console.log("RES-vechicle", response.data.results);
 
       if (response.data.results) {
-        setVechicle(response.data.results);
+        setVechicles(response.data.results);
       }
       
   })  
@@ -31,8 +31,18 @@ const getData = () => {
   })
 }
   
+const vechiclesRender = vechicles.map((vechicle: any) => (
+  <div key={vechicle.name}>
+    <h1 >Name: {vechicle.name}</h1>
+      <h2>Model: {vechicle.model}</h2>
+      <h2>Manufacturer: {vechicle.manufacturer}</h2>
+      <h2>Cost: {vechicle.cost_in_credits}</h2>    
+  </div>
+))
+
+
 const content = isLoading ? <div>Loading..</div> : 
-<div><pre>{JSON.stringify(vechicle, null , 2)}</pre></div>
+<div>{vechiclesRender}</div>
 
 return <h1>{content} </h1>
 }

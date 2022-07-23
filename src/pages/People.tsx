@@ -30,9 +30,19 @@ const getData = () => {
     console.log("mamy blad", error);
   })
 }
-  
+ 
+const peopleRender = people.map((person: any) => (
+  <div key={person.name}>
+    <h1 >Name: {person.name}</h1>
+      <h2>Height: {person.height}</h2>
+      <h2>Mass: {person.mass}</h2>
+      <h2 >Hair: {person.hair_color}</h2>
+      <h2 >Skin: {person.skin_color}</h2>
+  </div>
+))
+
 const content = isLoading ? <div>Loading..</div> : 
-<div><pre>{JSON.stringify(people, null , 2)}</pre></div>
+<div>{peopleRender}</div>
 
 return <h1>{content} </h1>
 }

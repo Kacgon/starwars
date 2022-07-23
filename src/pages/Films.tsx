@@ -31,8 +31,15 @@ const getData = () => {
   })
 }
   
+const filmsRender = films.map((film: any) => (
+  <div key={film.title}>
+    <h1 >{film.title} {film.episode_id}</h1>
+      <h2 >{film.opening_crawl}</h2>
+  </div>
+))
+
 const content = isLoading ? <div>Loading..</div> : 
-<div><pre>{JSON.stringify(films, null , 2)}</pre></div>
+<div>{filmsRender}</div>
 
 return <h1>{content} </h1>
 }

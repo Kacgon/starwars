@@ -18,7 +18,7 @@ const getData = () => {
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);
-      console.log("RES-films", response.data.results);
+      console.log("RES-species", response.data.results);
 
       if (response.data.results) {
         setSpecies(response.data.results);
@@ -30,9 +30,20 @@ const getData = () => {
     console.log("mamy blad", error);
   })
 }
-  
+ 
+const speciesRender = species.map((specie: any) => (
+  <div key={specie.name}>
+    <h1 >Name: {specie.name}</h1>
+      <h2>Classification: {specie.classification}</h2>
+      <h2>Designation: {specie.designation}</h2>
+      <h2>Average height: {specie.average_height}</h2>
+      <h2>Skincolors: {specie.skin_colors}</h2>
+  </div>
+))
+
+
 const content = isLoading ? <div>Loading..</div> : 
-<div><pre>{JSON.stringify(species, null , 2)}</pre></div>
+<div>{speciesRender}</div>
 
 return <h1>{content} </h1>
 }

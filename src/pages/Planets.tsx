@@ -30,9 +30,20 @@ const getData = () => {
     console.log("mamy blad", error);
   })
 }
-  
+
+const planetsRender = planets.map((planet: any) => (
+  <div key={planet.name}>
+    <h1 >Name: {planet.name}</h1>
+      <h2>Rotation Period: {planet.rotation_period}</h2>
+      <h2>Orbital Period: {planet.orbital_period}</h2>
+      <h2>Diameter: {planet.diameter}</h2>
+      <h2>Climate: {planet.climate}</h2>
+  </div>
+))
+
+
 const content = isLoading ? <div>Loading..</div> : 
-<div><pre>{JSON.stringify(planets, null , 2)}</pre></div>
+<div>{planetsRender}</div>
 
 return <h1>{content} </h1>
 }
