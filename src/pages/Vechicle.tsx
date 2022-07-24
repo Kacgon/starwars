@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { VechiclesPost } from "../components/VechiclePost";
 
 const Vechicle = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,10 +34,7 @@ const getData = () => {
   
 const vechiclesRender = vechicles.map((vechicle: any) => (
   <div key={vechicle.name}>
-    <h1 >Name: {vechicle.name}</h1>
-      <h2>Model: {vechicle.model}</h2>
-      <h2>Manufacturer: {vechicle.manufacturer}</h2>
-      <h2>Cost: {vechicle.cost_in_credits}</h2>    
+    <VechiclesPost {...vechicle} />
   </div>
 ))
 

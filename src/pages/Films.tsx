@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { FilmsPost } from "../components/FilmsPost";
 
 const Films = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,8 +34,7 @@ const getData = () => {
   
 const filmsRender = films.map((film: any) => (
   <div key={film.title}>
-    <h1 >{film.title} {film.episode_id}</h1>
-      <h2 >{film.opening_crawl}</h2>
+      <FilmsPost {...film}/>
   </div>
 ))
 

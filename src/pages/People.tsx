@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { PeoplePost } from "../components/PeoplePost";
 
 const People = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,13 +34,10 @@ const getData = () => {
  
 const peopleRender = people.map((person: any) => (
   <div key={person.name}>
-    <h1 >Name: {person.name}</h1>
-      <h2>Height: {person.height}</h2>
-      <h2>Mass: {person.mass}</h2>
-      <h2 >Hair: {person.hair_color}</h2>
-      <h2 >Skin: {person.skin_color}</h2>
+    <PeoplePost {...person}/>
   </div>
 ))
+
 
 const content = isLoading ? <div>Loading..</div> : 
 <div>{peopleRender}</div>

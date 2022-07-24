@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { SpeciesPost } from "../components/SpeciesPost";
 
 const Films = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,11 +34,7 @@ const getData = () => {
  
 const speciesRender = species.map((specie: any) => (
   <div key={specie.name}>
-    <h1 >Name: {specie.name}</h1>
-      <h2>Classification: {specie.classification}</h2>
-      <h2>Designation: {specie.designation}</h2>
-      <h2>Average height: {specie.average_height}</h2>
-      <h2>Skincolors: {specie.skin_colors}</h2>
+    <SpeciesPost {...specie}/>
   </div>
 ))
 

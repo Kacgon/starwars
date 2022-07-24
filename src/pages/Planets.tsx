@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { PlanetsPost } from "../components/PlanetsPost";
 
 const Planets = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,11 +34,7 @@ const getData = () => {
 
 const planetsRender = planets.map((planet: any) => (
   <div key={planet.name}>
-    <h1 >Name: {planet.name}</h1>
-      <h2>Rotation Period: {planet.rotation_period}</h2>
-      <h2>Orbital Period: {planet.orbital_period}</h2>
-      <h2>Diameter: {planet.diameter}</h2>
-      <h2>Climate: {planet.climate}</h2>
+    <PlanetsPost {...planet}/>
   </div>
 ))
 

@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { StarshipsPost } from "../components/StarshipsPost";
+
+
 
 const Starships = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -32,11 +35,8 @@ const getData = () => {
 }
  
 const starshipsRender = starships.map((starship: any) => (
-  <div key={starship.name}>
-    <h1 >Name: {starship.name}</h1>
-      <h2>Model: {starship.model}</h2>
-      <h2>Manufacturer: {starship.manufacturer}</h2>
-      <h2>Cost: {starship.cost_in_credits}</h2>    
+  <div className="title" key={starship.name}>
+    <StarshipsPost {...starship} />
   </div>
 ))
 
