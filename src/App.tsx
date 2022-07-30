@@ -9,6 +9,7 @@ import Starships from './pages/Starships'
 import Vechicle from './pages/Vechicle'
 import { HomePage } from './pages/HomePage'
 import {Navbar} from './components/Navbar'
+import NewAcc from './pages/Newacc'
 
 function App() { 
   return (
@@ -24,7 +25,7 @@ function App() {
   <Route path='/Species' element={<Species/>} />
   <Route path='/Starships' element={<Starships/>} />
   <Route path='/Vechicle' element={<Vechicle/>} />
-
+  <Route path='/NewAcc' element={<NewAcc/>} />
 
     </Routes>
 
