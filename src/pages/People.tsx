@@ -34,7 +34,7 @@ const getData = () => {
  
 const peopleRender = people.map((person: any) => (
   <div key={person.name}>
-    <PeoplePost {...person}/>
+    <PeoplePost  {...person}/>
   </div>
 ))
 
