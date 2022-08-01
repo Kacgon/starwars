@@ -2,7 +2,9 @@ import { Avatar } from "@material-ui/core"
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap" 
 import { NavLink } from "react-router-dom"
 import {collection} from 'firebase/firestore'
-import { logout } from "./Firebase"
+import { logout, signIn } from "./Firebase"
+
+
 
 export function Navbar() {
     return <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
@@ -18,7 +20,7 @@ export function Navbar() {
                 
             </Nav>
             <Nav>
-            <Avatar></Avatar>
+            <Avatar src={localStorage.getItem("avatar")}/>
             <Nav.Link to="/NewAcc" as={NavLink}> Log In</Nav.Link>      
             </Nav>
             <Button onClick={logout}>Log Out</Button>
