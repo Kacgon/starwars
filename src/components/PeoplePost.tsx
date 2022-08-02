@@ -19,6 +19,8 @@ PeoplePostProp) {
         <Card.Body className="Text">mass: <span>{mass}</span></Card.Body>
         <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
         <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
+        <div className="like">like</div>
+        <div className="Favorite">heart</div>
         </Card.Body>
     </Card>
 }

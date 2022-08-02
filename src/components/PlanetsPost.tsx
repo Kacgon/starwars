@@ -21,6 +21,8 @@ PlanetsPostProp) {
         <Card.Body className="fs-4">orbital_period: <span>{orbital_period}</span></Card.Body>
         <Card.Body className="fs-4">diameter: <span >{diameter}</span></Card.Body>
         <Card.Body className="fs-4">climate: <span>{climate}</span></Card.Body>
+        <div className="like">like</div>
+        <div className="Favorite">heart</div>
         </Card.Body>
     </Card>
 }

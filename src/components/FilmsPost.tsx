@@ -11,9 +11,11 @@ FilmsPostProp) {
     return <Card>
         <Card.Body className="AppContainer" >
             <Card.Title >
-    <span className="fs-2">{title}  {episode_id}</span>
+    <span className="fs-2">{title} {episode_id}</span>
             </Card.Title>
     <span className="fs-4">{opening_crawl}</span>
+    <div className="like">like</div>
+    <div className="Favorite">heart</div>
         </Card.Body>
     </Card>
 }

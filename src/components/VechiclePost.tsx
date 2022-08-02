@@ -19,6 +19,8 @@ VechiclesPostProp) {
         <Card.Body className="fs-4">model: <span>{model}</span></Card.Body>
         <Card.Body className="fs-4">manufacturer: <span>{manufacturer}</span></Card.Body>
         <Card.Body className="fs-4">cost: <span >{cost}</span></Card.Body>
+        <div className="like">like</div>
+        <div className="Favorite">heart</div>
         </Card.Body>
     </Card>
 }
