@@ -9,7 +9,7 @@ type FilmsPostProp = {
 export function FilmsPost({title, episode_id, opening_crawl}:
 FilmsPostProp) {
     return <Card>
-        <Card.Body >
+        <Card.Body className="AppContainer" >
             <Card.Title >
     <span className="fs-2">{title}  {episode_id}</span>
             </Card.Title>

@@ -13,7 +13,7 @@ export function PlanetsPost({
     diameter,climate}:
 PlanetsPostProp) {
     return <Card>
-        <Card.Body >
+        <Card.Body className="AppContainer">
             <Card.Title >
     <span className="fs-2">{name}</span>
             </Card.Title>

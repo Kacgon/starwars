@@ -9,7 +9,7 @@ import Starships from './pages/Starships'
 import Vechicle from './pages/Vechicle'
 import { HomePage } from './pages/HomePage'
 import {Navbar} from './components/Navbar'
-import NewAcc from './pages/Newacc'
+import NewAcc from './pages/NewAcc'
 
 function App() { 
   return (

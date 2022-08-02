@@ -12,7 +12,7 @@ export function VechiclesPost({
     cost}:
 VechiclesPostProp) {
     return <Card>
-        <Card.Body >
+        <Card.Body className="AppContainer">
             <Card.Title >
     <span className="fs-2">{model}</span>
             </Card.Title>

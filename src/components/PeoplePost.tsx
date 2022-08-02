@@ -11,7 +11,7 @@ type PeoplePostProp = {
 export function PeoplePost({name, height, mass, hair_color,skin_color}:
 PeoplePostProp) {
     return <Card>
-        <Card.Body >
+        <Card.Body className="AppContainer" >
             <Card.Title >
     <span className="Text">{name}</span>
             </Card.Title>

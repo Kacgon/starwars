@@ -8,7 +8,7 @@ import '../main.scss';
 
 export function Navbar() {
     return <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
-        <Container>
+        <Container className="NavLink">
             <Nav className="me-auto">
                 <Nav.Link className="NavLink" to="/" as={NavLink}>HomePage</Nav.Link>
                 <Nav.Link className="NavLink" to="/Films" as={NavLink}>Films</Nav.Link>
