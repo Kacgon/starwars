@@ -11,12 +11,13 @@ import { HomePage } from './pages/HomePage'
 import {Navbar} from './components/Navbar'
 import NewAcc from './pages/NewAcc'
 
+
 function App() { 
   return (
 
   <>
     <Navbar />
-  <Container className='mb-4'> 
+  <Container className='AppContainer'> 
     <Routes>
   <Route path='/' element={<HomePage/>} />
   <Route path='/Films' element={<Films/>} />

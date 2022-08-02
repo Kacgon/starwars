@@ -31,8 +31,12 @@ export const signIn = () => {
         console.log(error);
     })
 }
+export function refreshPage() {
+    window.location.reload()
+}
 
 export const logout = async () => {
+  
     
     auth.signOut().then(() => {
         localStorage.clear()
