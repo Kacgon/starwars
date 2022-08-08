@@ -1,4 +1,6 @@
 import { Card } from "react-bootstrap"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
 type SpeciesPostProp = {
     name: string
@@ -21,8 +23,8 @@ SpeciesPostProp) {
         <Card.Body className="fs-4">designation: <span>{designation}</span></Card.Body>
         <Card.Body className="fs-4">average_height: <span >{average_height}</span></Card.Body>
         <Card.Body className="fs-4">skin_colors: <span>{skin_colors}</span></Card.Body>
-        <div className="like">like</div>
-        <div className="Favorite">heart</div>
+        <div className="like"><FavoriteIcon></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

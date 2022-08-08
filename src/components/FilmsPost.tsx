@@ -1,4 +1,6 @@
 import { Card } from "react-bootstrap"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
 type FilmsPostProp = {
     title: string
@@ -14,8 +16,8 @@ FilmsPostProp) {
     <span className="fs-2">{title} {episode_id}</span>
             </Card.Title>
     <span className="fs-4">{opening_crawl}</span>
-    <div className="like">like</div>
-    <div className="Favorite">heart</div>
+    <div className="like"><FavoriteIcon></FavoriteIcon></div>
+    <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

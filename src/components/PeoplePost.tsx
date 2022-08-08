@@ -1,4 +1,6 @@
 import { Card } from "react-bootstrap"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
 type PeoplePostProp = {
     name: string
@@ -19,8 +21,8 @@ PeoplePostProp) {
         <Card.Body className="Text">mass: <span>{mass}</span></Card.Body>
         <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
         <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
-        <div className="like">like</div>
-        <div className="Favorite">heart</div>
+        <div className="like"><FavoriteIcon></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }
