@@ -26,6 +26,7 @@ export const signIn = () => {
         localStorage.setItem("name", name)
         localStorage.setItem("email", email)
         localStorage.setItem("avatar", avatar)
+        refreshPage()
     })
     .catch((error) => {
         console.log(error);

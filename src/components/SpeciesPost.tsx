@@ -10,6 +10,15 @@ type SpeciesPostProp = {
     skin_colors: string
 }
 
+function HeartFunc() {
+    alert ('działa like')
+}
+
+function FavFunc() {
+    alert ('działa fav')
+}
+
+
 export function SpeciesPost({
     name, classification, designation,
     average_height,skin_colors}:
@@ -23,8 +32,8 @@ SpeciesPostProp) {
         <Card.Body className="fs-4">designation: <span>{designation}</span></Card.Body>
         <Card.Body className="fs-4">average_height: <span >{average_height}</span></Card.Body>
         <Card.Body className="fs-4">skin_colors: <span>{skin_colors}</span></Card.Body>
-        <div className="like"><FavoriteIcon></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

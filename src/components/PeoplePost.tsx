@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
+
 type PeoplePostProp = {
     name: string
     height: number
@@ -9,6 +10,15 @@ type PeoplePostProp = {
     hair_color:string
     skin_color: string
 }
+
+function HeartFunc() {
+    alert ('działa like')
+}
+
+function FavFunc() {
+    alert ('działa fav')
+}
+
 
 export function PeoplePost({name, height, mass, hair_color,skin_color}:
 PeoplePostProp) {
@@ -21,8 +31,8 @@ PeoplePostProp) {
         <Card.Body className="Text">mass: <span>{mass}</span></Card.Body>
         <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
         <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
-        <div className="like"><FavoriteIcon></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

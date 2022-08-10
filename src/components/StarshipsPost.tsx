@@ -9,6 +9,15 @@ type StarshipsPostProp = {
     cost: number
 }
 
+function HeartFunc() {
+    alert ('działa like')
+}
+
+function FavFunc() {
+    alert ('działa fav')
+}
+
+
 export function StarshipsPost({
     name, model, manufacturer,
     cost}:
@@ -21,8 +30,8 @@ StarshipsPostProp) {
         <Card.Body className="fs-4">model: <span>{model}</span></Card.Body>
         <Card.Body className="fs-4">manufacturer: <span>{manufacturer}</span></Card.Body>
         <Card.Body className="fs-4">cost: <span >{cost}</span></Card.Body>
-        <div className="like"><FavoriteIcon></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

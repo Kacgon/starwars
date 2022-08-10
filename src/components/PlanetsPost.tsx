@@ -10,6 +10,15 @@ type PlanetsPostProp = {
     climate: string
 }
 
+function HeartFunc() {
+    alert ('działa like')
+}
+
+function FavFunc() {
+    alert ('działa fav')
+}
+
+
 export function PlanetsPost({
     name, rotation_period, orbital_period,
     diameter,climate}:
@@ -23,8 +32,8 @@ PlanetsPostProp) {
         <Card.Body className="fs-4">orbital_period: <span>{orbital_period}</span></Card.Body>
         <Card.Body className="fs-4">diameter: <span >{diameter}</span></Card.Body>
         <Card.Body className="fs-4">climate: <span>{climate}</span></Card.Body>
-        <div className="like"><FavoriteIcon></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

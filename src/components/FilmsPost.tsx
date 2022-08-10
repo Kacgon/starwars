@@ -8,6 +8,15 @@ type FilmsPostProp = {
     opening_crawl: string
 }
 
+function HeartFunc() {
+    alert ('działa like')
+}
+
+function FavFunc() {
+    alert ('działa fav')
+}
+
+
 export function FilmsPost({title, episode_id, opening_crawl}:
 FilmsPostProp) {
     return <Card>
@@ -16,8 +25,8 @@ FilmsPostProp) {
     <span className="fs-2">{title} {episode_id}</span>
             </Card.Title>
     <span className="fs-4">{opening_crawl}</span>
-    <div className="like"><FavoriteIcon></FavoriteIcon></div>
-    <div className="Favorite"><BookmarkAddIcon></BookmarkAddIcon></div>
+    <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }
