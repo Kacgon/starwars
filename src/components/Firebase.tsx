@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider, signInWithPopup, signOut} from 'firebase/auth'
+import {getDatabase, ref, set} from "firebase/database"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBflYC-HGz9GV1oqHSC32LBnHmttWDePaM",
@@ -8,13 +9,15 @@ const firebaseConfig = {
   storageBucket: "starwarsauthent.appspot.com",
   messagingSenderId: "1061254310997",
   appId: "1:1061254310997:web:93d3508df31a2775a1f8dc"
-};
+}
 
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+export const db = getDatabase(app);
 
-const provider = new GoogleAuthProvider()
+
 
 export const signIn = () => {
     signInWithPopup(auth, provider) 
@@ -47,3 +50,4 @@ export const logout = async () => {
         <h1>error</h1>
     })
 }
+

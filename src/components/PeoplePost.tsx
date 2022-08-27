@@ -1,9 +1,14 @@
 import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import {db} from './Firebase'
+import { ref, set, push } from "firebase/database";
+import {user} from '../pages/HomePage'
 
 
-type PeoplePostProp = {
+
+
+export type PeoplePostProp = {
     name: string
     height: number
     mass: number
@@ -11,12 +16,18 @@ type PeoplePostProp = {
     skin_color: string
 }
 
-function HeartFunc() {
-    alert ('działa like')
+const addToDatabase = (name: string) => {
+    push(ref(db, 'people/liked'), {
+        "name": name, 
+        user,
+})    
 }
 
-function FavFunc() {
-    alert ('działa fav')
+const addFav = (name: string) => {
+    push(ref(db, 'people/faved'), {
+    "name": name, 
+    user
+})    
 }
 
 
@@ -31,8 +42,8 @@ PeoplePostProp) {
         <Card.Body className="Text">mass: <span>{mass}</span></Card.Body>
         <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
         <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
-        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={() => addToDatabase(name)}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={() => addFav(name)}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

@@ -1,6 +1,9 @@
 import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import { ref, set, push } from "firebase/database";
+import {user} from '../pages/HomePage'
+import {db} from './Firebase'
 
 type PlanetsPostProp = {
     name: string
@@ -10,19 +13,26 @@ type PlanetsPostProp = {
     climate: string
 }
 
-function HeartFunc() {
-    alert ('działa like')
+const addToDatabase = (name: string) => {
+    push(ref(db, 'planets/liked'), {
+        "name": name, 
+        user,
+})    
 }
 
-function FavFunc() {
-    alert ('działa fav')
+const addFav = (name: string) => {
+    push(ref(db, 'planets/faved'), {
+    "name": name, 
+    user
+})    
 }
 
 
 export function PlanetsPost({
     name, rotation_period, orbital_period,
     diameter,climate}:
-PlanetsPostProp) {
+    PlanetsPostProp) 
+    {
     return <Card>
         <Card.Body className="AppContainer">
             <Card.Title >
@@ -32,8 +42,8 @@ PlanetsPostProp) {
         <Card.Body className="fs-4">orbital_period: <span>{orbital_period}</span></Card.Body>
         <Card.Body className="fs-4">diameter: <span >{diameter}</span></Card.Body>
         <Card.Body className="fs-4">climate: <span>{climate}</span></Card.Body>
-        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={() => addToDatabase(name)}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={() => addFav(name)}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }

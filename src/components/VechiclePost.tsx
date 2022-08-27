@@ -1,6 +1,9 @@
 import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import { ref, set, push } from "firebase/database";
+import {user} from '../pages/HomePage'
+import {db} from './Firebase'
 
 type VechiclesPostProp = {
     name: string
@@ -9,12 +12,18 @@ type VechiclesPostProp = {
     cost: number
 }
 
-function HeartFunc() {
-    alert ('działa like')
+const addToDatabase = (name: string) => {
+    push(ref(db, 'vechicle/liked'), {
+        "name": name, 
+        user,
+})    
 }
 
-function FavFunc() {
-    alert ('działa fav')
+const addFav = (name: string) => {
+    push(ref(db, 'vechicle/faved'), {
+    "name": name, 
+    user
+})    
 }
 
 
@@ -29,9 +38,8 @@ VechiclesPostProp) {
             </Card.Title>
         <Card.Body className="fs-4">model: <span>{model}</span></Card.Body>
         <Card.Body className="fs-4">manufacturer: <span>{manufacturer}</span></Card.Body>
-        <Card.Body className="fs-4">cost: <span >{cost}</span></Card.Body>
-        <div className="like"><FavoriteIcon onClick={HeartFunc}></FavoriteIcon></div>
-        <div className="Favorite"><BookmarkAddIcon onClick={FavFunc}></BookmarkAddIcon></div>
+        <div className="like"><FavoriteIcon onClick={() => addToDatabase(name)}></FavoriteIcon></div>
+        <div className="Favorite"><BookmarkAddIcon onClick={() => addFav(name)}></BookmarkAddIcon></div>
         </Card.Body>
     </Card>
 }
