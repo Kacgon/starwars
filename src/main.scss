@@ -77,8 +77,21 @@
 .like {
   text-align: right;
   font-size: 25px;
+  color: rgb(182, 167, 167);
 }
 .Favorite {
   text-align: end;
   font-size: 25px;
+}
+.toggle-unliked{
+  color: rgb(182, 167, 167); 
+}
+.toggle-liked{
+  color: rgb(221, 20, 20);
+}
+.toggle-unfaved{
+  color: rgb(182, 167, 167); 
+}
+.toggle-faved{
+  color: rgb(228, 181, 28);
 }

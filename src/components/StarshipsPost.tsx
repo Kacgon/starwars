@@ -12,6 +12,8 @@ type StarshipsPostProp = {
     cost: number
 }
 
+
+
 const addToDatabase = (name: string) => {
     push(ref(db, 'starships/liked'), {
         "name": name, 
@@ -29,7 +31,7 @@ const addFav = (name: string) => {
 
 export function StarshipsPost({
     name, model, manufacturer,
-    cost}:
+    }:
 StarshipsPostProp) {
     return <Card>
         <Card.Body className="AppContainer">
