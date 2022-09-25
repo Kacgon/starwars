@@ -2,9 +2,10 @@ import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import {db} from './Firebase'
-import { ref, set, push } from "firebase/database";
+import { ref, push, remove, update } from "firebase/database";
 import {user} from '../pages/HomePage'
 import { useState } from "react";
+import { documentId } from "firebase/firestore";
 
 
 
@@ -18,18 +19,18 @@ export type PeoplePostProp = {
 }
 
 
-
 const addToDatabase = (name: string) => {
-    push(ref(db, 'people/liked'), {
+    push(ref(db, 'people/liked/' +user), {
         "name": name, 
-        user,
+        
 })    
 }
 
+
 const addFav = (name: string) => {
-    push(ref(db, 'people/faved'), {
+    push(ref(db, 'people/faved/' +user), {
     "name": name, 
-    user
+    
 })    
 }
 
@@ -47,6 +48,12 @@ PeoplePostProp) {
 }
 
 
+const DelLike = () => {
+    remove(ref(db, '/faved/' +user), 
+
+    
+    )
+}
 
 function FavHandler() {
     favToggle()
@@ -74,6 +81,7 @@ function LikeHandler() {
         <div className="Favorite">
         <BookmarkAddIcon onClick={FavHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
         ></BookmarkAddIcon>
+        <BookmarkAddIcon onClick={DelLike} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         </Card.Body>
     </Card>

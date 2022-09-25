@@ -5,4 +5,4 @@ export function HomePage() {
   }
   
 
-  export const user = localStorage.getItem("email")
+  export const user : any = localStorage.getItem("name")
