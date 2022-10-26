@@ -15,16 +15,16 @@ type StarshipsPostProp = {
 
 
 const addToDatabase = (name: string) => {
-    push(ref(db, 'starships/liked'), {
+    push(ref(db, 'liked/starships'), {
         "name": name, 
-        user,
+       
 })    
 }
 
 const addFav = (name: string) => {
-    push(ref(db, 'starships/faved'), {
+    push(ref(db, '/faved/starships/' +user), {
     "name": name, 
-    user
+    
 })    
 }
 

@@ -12,16 +12,16 @@ type FilmsPostProp = {
 }
 
 const addToDatabase = (title: string) => {
-    push(ref(db, 'films/liked'), {
+    push(ref(db, '/liked/films/' +user), {
         "title": title, 
-        user,
+        
 })    
 }
 
 const addFav = (title: string) => {
-    push(ref(db, 'films/faved'), {
+    push(ref(db, '/faved/films/'+user), {
     "title": title, 
-    user
+
 })    
 }
 

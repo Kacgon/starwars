@@ -14,14 +14,14 @@ type PlanetsPostProp = {
 }
 
 const addToDatabase = (name: string) => {
-    push(ref(db, 'planets/liked'), {
+    push(ref(db, 'liked/planets/' +user), {
         "name": name, 
         user,
 })    
 }
 
 const addFav = (name: string) => {
-    push(ref(db, 'planets/faved'), {
+    push(ref(db, '/faved/planets/' +user), {
     "name": name, 
     user
 })    

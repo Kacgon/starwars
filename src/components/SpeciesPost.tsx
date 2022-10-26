@@ -14,16 +14,16 @@ type SpeciesPostProp = {
 }
 
 const addToDatabase = (name: string) => {
-    push(ref(db, 'species/liked'), {
+    push(ref(db, '/liked/species'), {
         "name": name, 
-        user,
+      
 })    
 }
 
 const addFav = (name: string) => {
-    push(ref(db, 'species/faved'), {
+    push(ref(db, '/faved/species/' +user), {
     "name": name, 
-    user
+    
 })    
 }
 

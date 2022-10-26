@@ -1,9 +1,6 @@
-import { TableBody } from "@material-ui/core";
 import { initializeApp } from "firebase/app";
-import {FacebookAuthProvider, getAuth, GoogleAuthProvider, linkWithRedirect, signInWithPopup, signOut} from 'firebase/auth'
-import {child, DataSnapshot, get, getDatabase, ref, } from "firebase/database" 
-import { arrayRemove, doc, snapshotEqual } from "firebase/firestore";
-import { useEffect } from "react";
+import { getAuth, GoogleAuthProvider, linkWithRedirect, signInWithPopup, signOut} from 'firebase/auth'
+import {child, get, getDatabase, ref, } from "firebase/database" 
 import { user } from "../pages/HomePage";
 
 const firebaseConfig = {
@@ -22,22 +19,38 @@ export const db = getDatabase(app);
 const dbRef = ref(db, 'people')
 
 
-export function GetAllData(){
+export function GetAllLikes(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "people/liked/"+user ))
+    get(child(dbRef, "liked/people" ))
     .then((DataSnapshot)=> {
-        var LikedPeop: any[]=[];
+        var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
-            LikedPeop.push(childSnaphot.val())
+            Liked.push(childSnaphot.val())
         }) 
+        localStorage.setItem('Liked',  JSON.stringify(Liked))
     
-        localStorage.setItem("LikedPeop", JSON.stringify(LikedPeop))
-    
-        
+
     })
 }
+
+export function GetAllFaved(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "faved/people/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('Faved', JSON.stringify(Faved))
+               
+    })
+}
+
+
 
 export const signIn = () => {
     signInWithPopup(auth, provider) 
@@ -66,7 +79,7 @@ export const logout = async () => {
     
     auth.signOut().then(() => {
         localStorage.clear()
-        console.log('Signed Out');
+        alert("signed out");
     })
     .catch((error) => {
         <h1>error</h1>

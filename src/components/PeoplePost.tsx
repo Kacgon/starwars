@@ -6,7 +6,7 @@ import { ref, push, remove, update } from "firebase/database";
 import {user} from '../pages/HomePage'
 import { useState } from "react";
 import { documentId } from "firebase/firestore";
-
+import {GetAllFaved, GetAllLikes} from "../components/Firebase"
 
 
 
@@ -19,17 +19,17 @@ export type PeoplePostProp = {
 }
 
 
-const addToDatabase = (name: string) => {
-    push(ref(db, 'people/liked/' +user), {
-        "name": name, 
+const addLike = (name: string) => {
+    push(ref(db,  '/liked/people/'+user ), {
+        name, 
         
 })    
 }
 
 
 const addFav = (name: string) => {
-    push(ref(db, 'people/faved/' +user), {
-    "name": name, 
+    push(ref(db,'/faved/people/'+user ), {
+    name, 
     
 })    
 }
@@ -48,9 +48,9 @@ PeoplePostProp) {
 }
 
 
-const DelLike = () => {
-    remove(ref(db, '/faved/' +user), 
-
+const DelFaved = () => {
+    remove(ref(db,'/faved/people/'+user), 
+    
     
     )
 }
@@ -58,12 +58,16 @@ const DelLike = () => {
 function FavHandler() {
     favToggle()
     addFav(name)
+    GetAllFaved()
 }
 
 function LikeHandler() {
     likeToggle()
-    addToDatabase(name)
+    addLike(name)
+    GetAllLikes()
 }
+
+
 
     return <Card>
         <Card.Body className="AppContainer" >
@@ -81,7 +85,7 @@ function LikeHandler() {
         <div className="Favorite">
         <BookmarkAddIcon onClick={FavHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
         ></BookmarkAddIcon>
-        <BookmarkAddIcon onClick={DelLike} className="DeleteFavTest"></BookmarkAddIcon>
+        <BookmarkAddIcon onClick={DelFaved} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         </Card.Body>
     </Card>

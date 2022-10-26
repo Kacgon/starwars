@@ -13,19 +13,18 @@ type VechiclesPostProp = {
 }
 
 const addToDatabase = (name: string) => {
-    push(ref(db, 'vechicle/liked'), {
+    push(ref(db, 'liked/vechicle/' +user), {
         "name": name, 
-        user,
+        
 })    
 }
 
 const addFav = (name: string) => {
-    push(ref(db, 'vechicle/faved'), {
+    push(ref(db, '/faved/vechicle/' +user), {
     "name": name, 
-    user
+    
 })    
 }
-
 
 export function VechiclesPost({
     name, model, manufacturer,
