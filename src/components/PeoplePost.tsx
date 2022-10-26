@@ -20,16 +20,16 @@ export type PeoplePostProp = {
 
 
 const addLike = (name: string) => {
-    push(ref(db,  '/liked/people/'+user ), {
-        name, 
+    push(ref(db,"liked/people/ " +name ), {
+        user, 
         
 })    
 }
 
 
 const addFav = (name: string) => {
-    push(ref(db,'/faved/people/'+user ), {
-    name, 
+    push(ref(db,"faved/people/ " +name ), {
+    user,
     
 })    
 }
@@ -49,10 +49,21 @@ PeoplePostProp) {
 
 
 const DelFaved = () => {
-    remove(ref(db,'/faved/people/'+user), 
-    
-    
+    remove(ref(db,"faved/people/ " +name ), 
     )
+}
+const DelLiked = () => {
+    remove(ref(db,"liked/people/ " +name ), 
+    )
+}
+function DelFavHandler() {
+    DelFaved()
+    GetAllFaved()
+}
+
+function DelLikeHandler() {
+    DelLiked()
+    GetAllLikes()
 }
 
 function FavHandler() {
@@ -81,11 +92,12 @@ function LikeHandler() {
         <div className="like">
         <FavoriteIcon onClick={LikeHandler} className={'toggle-unliked ' + (like ? 'toggle-liked':'')} 
         ></FavoriteIcon>
+        <BookmarkAddIcon onClick={DelLikeHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         <div className="Favorite">
         <BookmarkAddIcon onClick={FavHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
         ></BookmarkAddIcon>
-        <BookmarkAddIcon onClick={DelFaved} className="DeleteFavTest"></BookmarkAddIcon>
+        <BookmarkAddIcon onClick={DelFavHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         </Card.Body>
     </Card>

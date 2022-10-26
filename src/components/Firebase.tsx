@@ -22,7 +22,7 @@ const dbRef = ref(db, 'people')
 export function GetAllLikes(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "liked/people" ))
+    get(child(dbRef, "liked/" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
@@ -38,7 +38,7 @@ export function GetAllLikes(){
 export function GetAllFaved(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "faved/people/" ))
+    get(child(dbRef, "faved/" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
