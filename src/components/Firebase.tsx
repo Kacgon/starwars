@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, linkWithRedirect, signInWithPopup, signOut} from 'firebase/auth'
-import {child, get, getDatabase, ref, } from "firebase/database" 
+import {child, get, getDatabase, QueryConstraint, ref, } from "firebase/database" 
 import { user } from "../pages/HomePage";
 
 const firebaseConfig = {
@@ -19,6 +19,15 @@ export const db = getDatabase(app);
 const dbRef = ref(db, 'people')
 
 
+function extract_name(dict: any[]=[]){
+    let root = dict[0]
+    let names = ''
+    for (let key in root) {
+        names += String(key) + ', '
+    }
+    return names
+}
+
 export function GetAllLikes(){
     const dbRef = ref(db);
 
@@ -29,12 +38,11 @@ export function GetAllLikes(){
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-        localStorage.setItem('Liked',  JSON.stringify(Liked))
-    
-
+       localStorage.setItem('Liked', extract_name(Liked));
+      
     })
-}
-
+} 
+ 
 export function GetAllFaved(){
     const dbRef = ref(db);
 
@@ -45,7 +53,7 @@ export function GetAllFaved(){
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('Faved', JSON.stringify(Faved))
+        localStorage.setItem('Faved', extract_name(Faved));
                
     })
 }

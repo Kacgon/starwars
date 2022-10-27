@@ -78,8 +78,6 @@ function LikeHandler() {
     GetAllLikes()
 }
 
-
-
     return <Card>
         <Card.Body className="AppContainer" >
             <Card.Title >
