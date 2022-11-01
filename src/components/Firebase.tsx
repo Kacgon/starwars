@@ -28,35 +28,178 @@ function extract_name(dict: any[]=[]){
     return names
 }
 
-export function GetAllLikes(){
+export function GetAllLikesPeople(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "liked/" ))
+    get(child(dbRef, "likedPeople/" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('Liked', extract_name(Liked));
+       localStorage.setItem('LikedPeople', extract_name(Liked));
       
     })
-} 
- 
-export function GetAllFaved(){
+}
+export function GetAllLikesFilms(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "faved/" ))
+    get(child(dbRef, "likedFilms/" ))
+    .then((DataSnapshot)=> {
+        var Liked: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Liked.push(childSnaphot.val())
+        }) 
+       localStorage.setItem('LikedFilms', extract_name(Liked));
+      
+    })
+}
+export function GetAllFavedFilms(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedFilms/" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('Faved', extract_name(Faved));
+        localStorage.setItem('FavedFilms', extract_name(Faved));
                
     })
 }
+
+
+export function GetAllLikesPlanets(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "likedPlanets/" ))
+    .then((DataSnapshot)=> {
+        var Liked: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Liked.push(childSnaphot.val())
+        }) 
+       localStorage.setItem('LikedPlanets', extract_name(Liked));
+      
+    })
+} 
+export function GetAllFavedPeople(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedPeople/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('FavedPeople', extract_name(Faved));
+               
+    })
+}
+export function GetAllFavedPlanets(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedPlanets/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('FavedPlanets', extract_name(Faved));
+               
+    })
+}
+
+export function GetAllFavedSpecies(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedSpecies/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('FavedSpecies', extract_name(Faved));
+               
+    })
+}
+
+export function GetAllLikesSpecies(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "likedSpecies/" ))
+    .then((DataSnapshot)=> {
+        var Liked: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Liked.push(childSnaphot.val())
+        }) 
+       localStorage.setItem('LikedSpecies', extract_name(Liked));
+      
+    })
+} 
+export function GetAllLikesStarships(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "likedStarships/" ))
+    .then((DataSnapshot)=> {
+        var Liked: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Liked.push(childSnaphot.val())
+        }) 
+       localStorage.setItem('LikedStarships', extract_name(Liked));
+      
+    })
+} 
+export function GetAllFavedStarships(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedStarships/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('FavedStarships', extract_name(Faved));
+               
+    })
+}
+export function GetAllFavedVechicle(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "favedVechicle/" ))
+    .then((DataSnapshot)=> {
+        var Faved: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Faved.push(childSnaphot.val())
+        }) 
+        localStorage.setItem('FavedVechicle', extract_name(Faved));
+               
+    })
+}
+export function GetAllLikesVechicle(){
+    const dbRef = ref(db);
+
+    get(child(dbRef, "likedVechicle/" ))
+    .then((DataSnapshot)=> {
+        var Liked: any[]=[];
+        
+        DataSnapshot.forEach(childSnaphot => {
+            Liked.push(childSnaphot.val())
+        }) 
+       localStorage.setItem('LikedVechicle', extract_name(Liked));
+      
+    })
+} 
 
 
 

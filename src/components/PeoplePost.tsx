@@ -5,10 +5,7 @@ import {db} from './Firebase'
 import { ref, push, remove, update } from "firebase/database";
 import {user} from '../pages/HomePage'
 import { useState } from "react";
-import { documentId } from "firebase/firestore";
-import {GetAllFaved, GetAllLikes} from "../components/Firebase"
-
-
+import {GetAllFavedPeople, GetAllLikesPeople} from "../components/Firebase"
 
 export type PeoplePostProp = {
     name: string
@@ -20,7 +17,7 @@ export type PeoplePostProp = {
 
 
 const addLike = (name: string) => {
-    push(ref(db,"liked/people/ " +name ), {
+    push(ref(db,"likedPeople/people/ " +name ), {
         user, 
         
 })    
@@ -28,7 +25,7 @@ const addLike = (name: string) => {
 
 
 const addFav = (name: string) => {
-    push(ref(db,"faved/people/ " +name ), {
+    push(ref(db,"favedPeople/people/ " +name ), {
     user,
     
 })    
@@ -47,35 +44,34 @@ PeoplePostProp) {
     setlike(!like);
 }
 
-
 const DelFaved = () => {
-    remove(ref(db,"faved/people/ " +name ), 
+    remove(ref(db,"favedPeople/people/ " +name ), 
     )
 }
 const DelLiked = () => {
-    remove(ref(db,"liked/people/ " +name ), 
+    remove(ref(db,"likedPeople/people/ " +name ), 
     )
 }
 function DelFavHandler() {
     DelFaved()
-    GetAllFaved()
+    GetAllFavedPeople()
 }
 
 function DelLikeHandler() {
     DelLiked()
-    GetAllLikes()
+    GetAllLikesPeople()
 }
 
 function FavHandler() {
     favToggle()
     addFav(name)
-    GetAllFaved()
+    GetAllFavedPeople()
 }
 
 function LikeHandler() {
     likeToggle()
     addLike(name)
-    GetAllLikes()
+    GetAllLikesPeople()
 }
 
     return <Card>
