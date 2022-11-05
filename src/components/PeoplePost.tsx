@@ -6,6 +6,8 @@ import { ref, push, remove, update } from "firebase/database";
 import {user} from '../pages/HomePage'
 import { useState } from "react";
 import {GetAllFavedPeople, GetAllLikesPeople} from "../components/Firebase"
+import { ClassNames } from "@emotion/react";
+import React from "react";
 
 export type PeoplePostProp = {
     name: string
@@ -55,25 +57,49 @@ const DelLiked = () => {
 function DelFavHandler() {
     DelFaved()
     GetAllFavedPeople()
+    favToggle()
 }
 
-function DelLikeHandler() {
-    DelLiked()
-    GetAllLikesPeople()
-}
+
 
 function FavHandler() {
     favToggle()
     addFav(name)
     GetAllFavedPeople()
+    
 }
 
+const[liked, setLiked] = useState(true);
 function LikeHandler() {
-    likeToggle()
-    addLike(name)
-    GetAllLikesPeople()
-}
+    if (liked == true) {
+        likeToggle()
+        addLike(name)
+        GetAllLikesPeople()
+        setLiked(!liked)
+        
+    } else {
+        DelLiked()
+        GetAllLikesPeople()
+        likeToggle()
+        setLiked(!liked)
+        
+    }
+} 
 
+const[faved, setFaved] = useState(true);
+function FavoriteHandler() {
+    if (faved == true) {
+        favToggle()
+        addFav(name)
+        GetAllFavedPeople()
+        setFaved(!faved)
+    } else {
+        DelFaved()
+        GetAllFavedPeople()
+        favToggle()
+        setFaved(!faved)
+    }
+}
     return <Card>
         <Card.Body className="AppContainer" >
             <Card.Title >
@@ -86,12 +112,10 @@ function LikeHandler() {
         <div className="like">
         <FavoriteIcon onClick={LikeHandler} className={'toggle-unliked ' + (like ? 'toggle-liked':'')} 
         ></FavoriteIcon>
-        <BookmarkAddIcon onClick={DelLikeHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         <div className="Favorite">
-        <BookmarkAddIcon onClick={FavHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
+        <BookmarkAddIcon onClick={FavoriteHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
         ></BookmarkAddIcon>
-        <BookmarkAddIcon onClick={DelFavHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         </Card.Body>
     </Card>
