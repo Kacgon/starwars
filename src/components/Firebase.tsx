@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, linkWithRedirect, signInWithPopup, signOut} from 'firebase/auth'
-import {child, get, getDatabase, QueryConstraint, ref, } from "firebase/database" 
-import { user } from "../pages/HomePage";
+import { getAuth, GoogleAuthProvider, signInWithPopup,} from 'firebase/auth'
+import {child, DataSnapshot, get, getDatabase, onValue, ref, } from "firebase/database" 
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBflYC-HGz9GV1oqHSC32LBnHmttWDePaM",
@@ -42,6 +42,7 @@ export function GetAllLikesPeople(){
       
     })
 }
+
 export function GetAllLikesFilms(){
     const dbRef = ref(db);
 

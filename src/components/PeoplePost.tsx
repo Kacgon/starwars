@@ -2,12 +2,11 @@ import { Card } from "react-bootstrap"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import {db} from './Firebase'
-import { ref, push, remove, update } from "firebase/database";
+import { ref, push, remove, update, onValue, set, getDatabase, get, child} from "firebase/database";
 import {user} from '../pages/HomePage'
 import { useState } from "react";
-import {GetAllFavedPeople, GetAllLikesPeople} from "../components/Firebase"
-import { ClassNames } from "@emotion/react";
-import React from "react";
+import {GetAllFavedPeople, GetAllLikesPeople } from "../components/Firebase"
+import { Typography } from "@mui/material";
 
 export type PeoplePostProp = {
     name: string
@@ -16,7 +15,6 @@ export type PeoplePostProp = {
     hair_color:string
     skin_color: string
 }
-
 
 const addLike = (name: string) => {
     push(ref(db,"likedPeople/people/ " +name ), {
@@ -36,7 +34,8 @@ const addFav = (name: string) => {
 
 export function PeoplePost({name, height, mass, hair_color,skin_color}:
 PeoplePostProp) {
-
+    window.onload = GetCounterFromDB
+    
     const[fav, setFav] = useState(false);
     const favToggle=()=> {
     setFav(!fav);
@@ -46,45 +45,68 @@ PeoplePostProp) {
     setlike(!like);
 }
 
+
 const DelFaved = () => {
     remove(ref(db,"favedPeople/people/ " +name ), 
     )
 }
+
+
 const DelLiked = () => {
     remove(ref(db,"likedPeople/people/ " +name ), 
     )
 }
-function DelFavHandler() {
-    DelFaved()
-    GetAllFavedPeople()
-    favToggle()
+
+var [counterValue, setCounterValue] = useState(null)
+function GetCounterFromDB(){
+    const dbRef = ref(db);
+    get(child(dbRef,"CounterPeople/people/ " +name ))
+    .then((DataSnapshot)=> {
+        var Counter: any=[];
+        DataSnapshot.forEach(childSnapshot => {
+            Counter.push(childSnapshot.val())
+        })
+       setCounterValue(Counter)
+    })
+}
+
+var [counter, setCounter] = useState(1)
+function CounterHandler(){
+    if (liked == false){
+        setCounter(counter+1)
+    }else {
+        setCounter(counter-1)
+    }
+    update(ref(db,"CounterPeople/people/ " +name ), {
+        counter
+    }) 
 }
 
 
-
-function FavHandler() {
-    favToggle()
-    addFav(name)
-    GetAllFavedPeople()
-    
-}
 
 const[liked, setLiked] = useState(true);
 function LikeHandler() {
     if (liked == true) {
-        likeToggle()
         addLike(name)
         GetAllLikesPeople()
         setLiked(!liked)
-        
+        localStorage.setItem('LIKED_STATUS'+name, JSON.stringify(liked))
+        likeToggle()
+        CounterHandler()
+        GetCounterFromDB()
     } else {
         DelLiked()
-        GetAllLikesPeople()
-        likeToggle()
+        GetAllLikesPeople() 
         setLiked(!liked)
-        
+        localStorage.setItem('LIKED_STATUS'+name, JSON.stringify(liked))
+        likeToggle()
+        CounterHandler()
+        GetCounterFromDB()
     }
-} 
+}
+
+const getLikeStatus : any = localStorage.getItem('LIKED_STATUS'+name)
+const LikeStatus = JSON.parse(getLikeStatus) 
 
 const[faved, setFaved] = useState(true);
 function FavoriteHandler() {
@@ -110,8 +132,9 @@ function FavoriteHandler() {
         <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
         <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
         <div className="like">
-        <FavoriteIcon onClick={LikeHandler} className={'toggle-unliked ' + (like ? 'toggle-liked':'')} 
+        <FavoriteIcon onClick={LikeHandler} className={(!LikeStatus ? 'toggle-unliked' :'') + (LikeStatus ? 'toggle-liked':'')} 
         ></FavoriteIcon>
+        <Typography>like counter: {counterValue}</Typography>
         </div>
         <div className="Favorite">
         <BookmarkAddIcon onClick={FavoriteHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}

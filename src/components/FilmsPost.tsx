@@ -49,29 +49,38 @@ const DelLiked = () => {
     )
 }
 
-function DelFavHandler() {
-    DelFaved()
-    GetAllFavedFilms()
-}
 
-function DelLikeHandler() {
-    DelLiked()
-    GetAllLikesFilms()
-}
-
-function FavHandler() {
-    favToggle()
-    addFav(title)
-    GetAllFavedFilms()
-}
-
+const[liked, setLiked] = useState(true);
 function LikeHandler() {
-    likeToggle()
-    addLike(title)
-    GetAllLikesFilms()
+    if (liked == true) {
+        likeToggle()
+        addLike(title)
+        GetAllLikesFilms()
+        setLiked(!liked)
+        
+    } else {
+        DelLiked()
+        GetAllLikesFilms()
+        likeToggle()
+        setLiked(!liked)
+        
+    }
+} 
+
+const[faved, setFaved] = useState(true);
+function FavoriteHandler() {
+    if (faved == true) {
+        favToggle()
+        addFav(title)
+        GetAllFavedFilms()
+        setFaved(!faved)
+    } else {
+        DelFaved()
+        GetAllFavedFilms()
+        favToggle()
+        setFaved(!faved)
+    }
 }
-
-
     return <Card>
         <Card.Body className="AppContainer" >
             <Card.Title >
@@ -83,12 +92,10 @@ function LikeHandler() {
         <div className="like">
         <FavoriteIcon onClick={LikeHandler} className={'toggle-unliked ' + (like ? 'toggle-liked':'')} 
         ></FavoriteIcon>
-        <BookmarkAddIcon onClick={DelLikeHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         <div className="Favorite">
-        <BookmarkAddIcon onClick={FavHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
+        <BookmarkAddIcon onClick={FavoriteHandler} className={'toggle-unfaved' + (fav ? 'toggle-faved':'')}
         ></BookmarkAddIcon>
-        <BookmarkAddIcon onClick={DelFavHandler} className="DeleteFavTest"></BookmarkAddIcon>
         </div>
         </Card.Body>
     </Card>
