@@ -15,7 +15,7 @@ const People = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/people";
+  const ENDPOINT = "https://swapi.py4e.com/api/people";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);

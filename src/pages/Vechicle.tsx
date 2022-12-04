@@ -15,7 +15,7 @@ const Vechicle = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/vehicles/";
+  const ENDPOINT = "https://swapi.py4e.com/api/vehicles/";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);

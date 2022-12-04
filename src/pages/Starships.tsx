@@ -17,7 +17,7 @@ const Starships = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/starships";
+  const ENDPOINT = "https://swapi.py4e.com/api/starships";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);

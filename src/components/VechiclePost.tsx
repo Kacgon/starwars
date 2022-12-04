@@ -76,7 +76,7 @@ function LikeHandler() {
     return <Card>
         <Card.Body className="AppContainer">
             <Card.Title >
-    <span className="fs-2">{model}</span>
+    <span className="fs-2">{name}</span>
             </Card.Title>
         <Card.Body className="fs-4">model: <span>{model}</span></Card.Body>
         <Card.Body className="fs-4">manufacturer: <span>{manufacturer}</span></Card.Body>

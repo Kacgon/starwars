@@ -15,7 +15,7 @@ const Films = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/films";
+  const ENDPOINT = "https://swapi.py4e.com/api/films";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);

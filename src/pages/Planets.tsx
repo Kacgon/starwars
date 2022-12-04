@@ -15,7 +15,7 @@ const Planets = () => {
 
 
 const getData = () => {
-  const ENDPOINT = "https://swapi.dev/api/planets";
+  const ENDPOINT = "https://swapi.py4e.com/api/planets";
   axios(ENDPOINT)
     .then((response: any ) => {
       setIsLoading(false);
