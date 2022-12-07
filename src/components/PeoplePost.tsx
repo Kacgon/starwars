@@ -122,6 +122,20 @@ function FavoriteHandler() {
         setFaved(!faved)
     }
 }
+if(localStorage.getItem("name") == null){
+    return <Card>
+        <Card.Body className="AppContainer" >
+            <Card.Title >
+    <span className="Text">{name}</span>
+            </Card.Title>
+        <Card.Body className="Text">height: <span>{height}</span></Card.Body>
+        <Card.Body className="Text">mass: <span>{mass}</span></Card.Body>
+        <Card.Body className="Text">hair_color: <span >{hair_color}</span></Card.Body>
+        <Card.Body className="Text">skin_color: <span>{skin_color}</span></Card.Body>
+        <h1 className="MustBeloggedinAlert">You heave to log in to like or fav posts</h1>
+        </Card.Body>
+    </Card>
+}else
     return <Card>
         <Card.Body className="AppContainer" >
             <Card.Title >
