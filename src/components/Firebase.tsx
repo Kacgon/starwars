@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup,} from 'firebase/auth'
 import {child, DataSnapshot, get, getDatabase, onValue, ref, } from "firebase/database" 
+import { user } from "../pages/HomePage";
 
 
 const firebaseConfig = {
@@ -31,14 +32,14 @@ function extract_name(dict: any[]=[]){
 export function GetAllLikesPeople(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedPeople/" ))
+    get(child(dbRef, user+ "/likedPeople" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedPeople', extract_name(Liked));
+       localStorage.setItem('LikedPeoplebyUser', extract_name(Liked));
       
     })
 }
@@ -46,28 +47,28 @@ export function GetAllLikesPeople(){
 export function GetAllLikesFilms(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedFilms/" ))
+    get(child(dbRef,user+ "/likedFilms" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedFilms', extract_name(Liked));
+       localStorage.setItem('LikedFilmsbyUser', extract_name(Liked));
       
     })
 }
 export function GetAllFavedFilms(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedFilms/" ))
+    get(child(dbRef,user+ "/favedFilms" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedFilms', extract_name(Faved));
+        localStorage.setItem('FavedFilmsbyUser', extract_name(Faved));
                
     })
 }
@@ -76,42 +77,42 @@ export function GetAllFavedFilms(){
 export function GetAllLikesPlanets(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedPlanets/" ))
+    get(child(dbRef, user+ "/likedPlanets" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedPlanets', extract_name(Liked));
+       localStorage.setItem('LikedPlanetsbyUser', extract_name(Liked));
       
     })
 } 
 export function GetAllFavedPeople(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedPeople/" ))
+    get(child(dbRef, user+ "/favedPeople" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedPeople', extract_name(Faved));
+        localStorage.setItem('FavedPeoplebyUser', extract_name(Faved));
                
     })
 }
 export function GetAllFavedPlanets(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedPlanets/" ))
+    get(child(dbRef,user+ "/favedPlanets" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedPlanets', extract_name(Faved));
+        localStorage.setItem('FavedPlanetsbyUser', extract_name(Faved));
                
     })
 }
@@ -119,14 +120,14 @@ export function GetAllFavedPlanets(){
 export function GetAllFavedSpecies(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedSpecies/" ))
+    get(child(dbRef,user+ "/favedSpecies" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedSpecies', extract_name(Faved));
+        localStorage.setItem('FavedSpeciesbyUser', extract_name(Faved));
                
     })
 }
@@ -134,70 +135,70 @@ export function GetAllFavedSpecies(){
 export function GetAllLikesSpecies(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedSpecies/" ))
+    get(child(dbRef,user+ "/likedSpecies" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedSpecies', extract_name(Liked));
+       localStorage.setItem('LikedSpeciesbyUser', extract_name(Liked));
       
     })
 } 
 export function GetAllLikesStarships(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedStarships/" ))
+    get(child(dbRef,user+ "/likedStarships" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedStarships', extract_name(Liked));
+       localStorage.setItem('LikedStarshipsbyUser', extract_name(Liked));
       
     })
 } 
 export function GetAllFavedStarships(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedStarships/" ))
+    get(child(dbRef,user+ "/favedStarships" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedStarships', extract_name(Faved));
+        localStorage.setItem('FavedStarshipsbyUser', extract_name(Faved));
                
     })
 }
 export function GetAllFavedVechicle(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "favedVechicle/" ))
+    get(child(dbRef,user+ "/favedVechicle" ))
     .then((DataSnapshot)=> {
         var Faved: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Faved.push(childSnaphot.val())
         }) 
-        localStorage.setItem('FavedVechicle', extract_name(Faved));
+        localStorage.setItem('FavedVechiclebyUser', extract_name(Faved));
                
     })
 }
 export function GetAllLikesVechicle(){
     const dbRef = ref(db);
 
-    get(child(dbRef, "likedVechicle/" ))
+    get(child(dbRef,user+ "/likedVechicle" ))
     .then((DataSnapshot)=> {
         var Liked: any[]=[];
         
         DataSnapshot.forEach(childSnaphot => {
             Liked.push(childSnaphot.val())
         }) 
-       localStorage.setItem('LikedVechicle', extract_name(Liked));
+       localStorage.setItem('LikedVechiclebyUser', extract_name(Liked));
       
     })
 } 

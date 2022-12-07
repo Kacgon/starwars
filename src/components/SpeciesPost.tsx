@@ -16,14 +16,14 @@ type SpeciesPostProp = {
 }
 
 const addLike = (name: string) => {
-    push(ref(db,"likedSpecies/species/ " +name ), {
+    push(ref(db,user+ "/likedSpecies/species/ " +name ), {
         user, 
         
 })    
 }
 
 const addFav = (name: string) => {
-    push(ref(db,"favedSpecies/species/ " +name ), {
+    push(ref(db,user+ "/favedSpecies/species/ " +name ), {
     user,
     
 })    
@@ -49,11 +49,11 @@ export function SpeciesPost({
 }
 
 const DelFaved = () => {
-    remove(ref(db,"favedSpecies/species/ " +name ), 
+    remove(ref(db,user+ "/favedSpecies/species/ " +name ), 
     )
 }
 const DelLiked = () => {
-    remove(ref(db,"likedSpecies/species/ " +name ), 
+    remove(ref(db,user+ "/likedSpecies/species/ " +name ), 
     )
 }
 

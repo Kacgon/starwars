@@ -17,13 +17,13 @@ type PlanetsPostProp = {
 }
 
 const addLike = (name: string) => {
-    push(ref(db,"likedPlanets/planets/ " +name ), {
+    push(ref(db,user+ "/likedPlanets/planets/ " +name ), {
         user, 
         
 })    
 }
 const addFav = (name: string) => {
-    push(ref(db,"favedPlanets/planets/ " +name ), {
+    push(ref(db,user+ "/favedPlanets/planets/ " +name ), {
     user,
     
 })    
@@ -43,11 +43,11 @@ export function PlanetsPost({name, rotation_period, orbital_period, diameter, cl
     }
     
     const DelFaved = () => {
-        remove(ref(db,"favedPlanets/planets/ " +name ), 
+        remove(ref(db,user+ "/favedPlanets/planets/ " +name ), 
         )
     }
     const DelLiked = () => {
-        remove(ref(db,"likedPlanets/planets/ " +name ), 
+        remove(ref(db,user+ "/likedPlanets/planets/ " +name ), 
         )
     }
     function DelFavHandler() {

@@ -6,3 +6,4 @@ export function HomePage() {
   
 
   export const user : any = localStorage.getItem("name")
+  export const email: any = localStorage.getItem("email")

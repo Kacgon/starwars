@@ -31,47 +31,47 @@ export function NewAcc () {
         }else{
             if(chosen == " People"){
                 return <div>
-                <h1>People likes: {localStorage.getItem("LikedPeople")}</h1>
-                <h2>People Faved: {localStorage.getItem("FavedPeople")}</h2></div>
+                <h1>People likes: {localStorage.getItem("LikedPeoplebyUser")}</h1>
+                <h2>People Faved: {localStorage.getItem("FavedPeoplebyUser")}</h2></div>
             }else if(chosen == " Planets"){
                 return <div>
-                <h1>Planets likes: {localStorage.getItem("LikedPlanets")}</h1>
-                <h2>Planets Faved: {localStorage.getItem("FavedPlanets")}</h2></div>
+                <h1>Planets likes: {localStorage.getItem("LikedPlanetsbyUser")}</h1>
+                <h2>Planets Faved: {localStorage.getItem("FavedPlanetsbyUser")}</h2></div>
             }else if(chosen == " Films"){
                 return <div>
-                <h1>Films likes: {localStorage.getItem("LikedFilms")}</h1>
-                <h2>Films Faved: {localStorage.getItem("FavedFilms")}</h2></div>
+                <h1>Films likes: {localStorage.getItem("LikedFilmsbyUser")}</h1>
+                <h2>Films Faved: {localStorage.getItem("FavedFilmsbyUser")}</h2></div>
             }else if(chosen == " Species"){
                 return <div>
-                <h1>Species likes: {localStorage.getItem("LikedSpecies")}</h1>
-                <h2>Species faved: {localStorage.getItem("FavedSpecies")}</h2></div>
+                <h1>Species likes: {localStorage.getItem("LikedSpeciesbyUser")}</h1>
+                <h2>Species faved: {localStorage.getItem("FavedSpeciesbyUser")}</h2></div>
             }else if(chosen == " Starships"){
                 return <div>
-                <h1>Starships likes: {localStorage.getItem("LikedStarships")}</h1>
-                <h2>Starships faved: {localStorage.getItem("FavedStarships")}</h2></div>
+                <h1>Starships likes: {localStorage.getItem("LikedStarshipsbyUser")}</h1>
+                <h2>Starships faved: {localStorage.getItem("FavedStarshipsbyUser")}</h2></div>
             }else if(chosen == " Vechicle"){
                 return <div>
-                <h1>Vechicle likes: {localStorage.getItem("LikedVechicle")}</h1>
-                <h2>Vechicle faved: {localStorage.getItem("FavedVechicle")}</h2></div>
+                <h1>Vechicle likes: {localStorage.getItem("LikedVechiclebyUser")}</h1>
+                <h2>Vechicle faved: {localStorage.getItem("FavedVechiclebyUser")}</h2></div>
             }else if(chosen ==" All"){
                 return <div><div>
-                <h1>People likes: {localStorage.getItem("LikedPeople")}</h1>
-                <h1>People Faved: {localStorage.getItem("FavedPeople")}</h1></div>
+                <h1>People likes: {localStorage.getItem("LikedPeoplebyUser")}</h1>
+                <h1>People Faved: {localStorage.getItem("FavedPeoplebyUser")}</h1></div>
                 <div>   
-                <h1>Planets likes: {localStorage.getItem("LikedPlanets")}</h1>
-                <h1>Planets Faved: {localStorage.getItem("FavedPlanets")}</h1></div>
+                <h1>Planets likes: {localStorage.getItem("LikedPlanetsbyUser")}</h1>
+                <h1>Planets Faved: {localStorage.getItem("FavedPlanetsbyUser")}</h1></div>
                 <div>
-                <h1>Films likes: {localStorage.getItem("LikedFilms")}</h1>
-                <h1>Films Faved: {localStorage.getItem("FavedFilms")}</h1></div>
+                <h1>Films likes: {localStorage.getItem("LikedFilmsbyUser")}</h1>
+                <h1>Films Faved: {localStorage.getItem("FavedFilmsbyUser")}</h1></div>
                 <div>
-                <h1>Species likes: {localStorage.getItem("LikedSpecies")}</h1>
-                <h1>Species faved: {localStorage.getItem("FavedSpecies")}</h1></div>
+                <h1>Species likes: {localStorage.getItem("LikedSpeciesbyUser")}</h1>
+                <h1>Species faved: {localStorage.getItem("FavedSpeciesbyUser")}</h1></div>
                 <div>
-                <h1>Starships likes: {localStorage.getItem("LikedStarships")}</h1>
-                <h1>Starships faved: {localStorage.getItem("FavedStarships")}</h1></div>
+                <h1>Starships likes: {localStorage.getItem("LikedStarshipsbyUser")}</h1>
+                <h1>Starships faved: {localStorage.getItem("FavedStarshipsbyUser")}</h1></div>
                 <div>
-                <h1>Vechicle likes: {localStorage.getItem("LikedVechicle")}</h1>
-                <h1>Vechicle faved: {localStorage.getItem("FavedVechicle")}</h1></div>
+                <h1>Vechicle likes: {localStorage.getItem("LikedVechiclebyUser")}</h1>
+                <h1>Vechicle faved: {localStorage.getItem("FavedVechiclebyUser")}</h1></div>
                 </div>}
         }
     }

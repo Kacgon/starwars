@@ -14,14 +14,14 @@ export type FilmsPostProp = {
 }
 
 const addLike = (title: string) => {
-    push(ref(db,"likedFilms/films/ " +title ), {
+    push(ref(db,user+ "/likedFilms/films/ " +title ), {
         user, 
         
 })    
 }
 
 const addFav = (title: string) => {
-    push(ref(db,"favedFilms/films/ " +title ), {
+    push(ref(db,user+ "/favedFilms/films/ " +title ), {
     user,
     
 })    
@@ -41,11 +41,11 @@ FilmsPostProp) {
 }
 
 const DelFaved = () => {
-    remove(ref(db,"favedFilms/films/ " +title ), 
+    remove(ref(db,user+ "/favedFilms/films/ " +title ), 
     )
 }
 const DelLiked = () => {
-    remove(ref(db,"likedFilms/films/ " +title ), 
+    remove(ref(db,user+ "likedFilms/films/ " +title ), 
     )
 }
 

@@ -15,7 +15,7 @@ type VechiclesPostProp = {
 }
 
 const addLike = (name: string) => {
-    push(ref(db,"likedVechicle/vechicle/ " +name ), {
+    push(ref(db,user+ "/likedVechicle/vechicle/ " +name ), {
         user, 
         
 })    
@@ -23,7 +23,7 @@ const addLike = (name: string) => {
 
 
 const addFav = (name: string) => {
-    push(ref(db,"favedVechicle/vechicle/ " +name ), {
+    push(ref(db,user+ "/favedVechicle/vechicle/ " +name ), {
     user,
     
 })    
@@ -45,11 +45,11 @@ VechiclesPostProp)
     setlike(!like);
 }
 const DelFaved = () => {
-    remove(ref(db,"favedVechicle/vechicle/ " +name ), 
+    remove(ref(db,user+ "/favedVechicle/vechicle/ " +name ), 
     )
 }
 const DelLiked = () => {
-    remove(ref(db,"likedVechicle/vechicle/ " +name ), 
+    remove(ref(db,user+ "/likedVechicle/vechicle/ " +name ), 
     )
 }
 function DelFavHandler() {

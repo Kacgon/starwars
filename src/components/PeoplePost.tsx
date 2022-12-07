@@ -17,7 +17,7 @@ export type PeoplePostProp = {
 }
 
 const addLike = (name: string) => {
-    push(ref(db,"likedPeople/people/ " +name ), {
+    push(ref(db, user+ "/likedPeople/people/ " +name ), {
         user, 
         
 })    
@@ -25,7 +25,7 @@ const addLike = (name: string) => {
 
 
 const addFav = (name: string) => {
-    push(ref(db,"favedPeople/people/ " +name ), {
+    push(ref(db, user+ "/favedPeople/people/ " +name ), {
     user,
     
 })    
@@ -47,13 +47,13 @@ PeoplePostProp) {
 
 
 const DelFaved = () => {
-    remove(ref(db,"favedPeople/people/ " +name ), 
+    remove(ref(db,user+ "/favedPeople/people/ " +name ), 
     )
 }
 
 
 const DelLiked = () => {
-    remove(ref(db,"likedPeople/people/ " +name ), 
+    remove(ref(db,user+ "/likedPeople/people/ " +name ), 
     )
 }
 

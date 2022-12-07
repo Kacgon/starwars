@@ -15,7 +15,7 @@ type StarshipsPostProp = {
 }
 
 const addLike = (name: string) => {
-    push(ref(db,"likedStarships/starships/ " +name ), {
+    push(ref(db,user+ "/likedStarships/starships/ " +name ), {
         user, 
         
 })    
@@ -23,7 +23,7 @@ const addLike = (name: string) => {
 
 
 const addFav = (name: string) => {
-    push(ref(db,"favedStarships/starships/ " +name ), {
+    push(ref(db,user+ "/favedStarships/starships/ " +name ), {
     user,
     
 })    
@@ -41,11 +41,11 @@ export function StarshipsPost({name,model,manufacturer,}:StarshipsPostProp)
     setlike(!like);
 }
 const DelFaved = () => {
-    remove(ref(db,"favedStarships/starships/ " +name ), 
+    remove(ref(db,user+ "/favedStarships/starships/ " +name ), 
     )
 }
 const DelLiked = () => {
-    remove(ref(db,"likedStarships/starships/ " +name ), 
+    remove(ref(db,user+ "/likedStarships/starships/ " +name ), 
     )
 }
 function DelFavHandler() {
