@@ -5,12 +5,7 @@ import { user } from "../pages/HomePage";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBflYC-HGz9GV1oqHSC32LBnHmttWDePaM",
-  authDomain: "starwarsauthent.firebaseapp.com",
-  projectId: "starwarsauthent",
-  storageBucket: "starwarsauthent.appspot.com",
-  messagingSenderId: "1061254310997",
-  appId: "1:1061254310997:web:93d3508df31a2775a1f8dc"
+  
 }
 
 const app = initializeApp(firebaseConfig);
